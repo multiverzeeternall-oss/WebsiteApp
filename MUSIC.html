@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiverze Entertainment — Games. Film & TV. Music. Technology. WorldTravel, Mansions & Cars</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0E14;
+    --surface:#12161F;
+    --surface-2:#181D28;
+    --line:#232939;
+    --text:#EDEFF4;
+    --text-mute:#8B93A7;
+    --brand:#800080;
+    --brand-dim:#2C3B8F;
+    --games:#33D6A6;
+    --games-dim:#0F4F3D;
+    --film:#FF5C8A;
+    --film-dim:#5C2135;
+    --Music:#FFC24B;
+    --Music-dim:#5C4213;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+  .display{font-family:'Big Shoulders',sans-serif; font-weight:800; letter-spacing:-0.01em; text-transform:uppercase; line-height:0.95;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  /* header */
+  header{border-bottom:1px solid var(--line); position:sticky; top:0; background:rgba(11,14,20,0.92); backdrop-filter:blur(6px); z-index:10;}
+  .header-row{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .logo{font-family:'Big Shoulders',sans-serif; font-weight:800; font-size:26px; letter-spacing:0.02em;}
+  .logo span{color:var(--brand);}
+  nav{display:flex; gap:28px;}
+  nav a{color:var(--text-mute); text-decoration:none; font-size:14px; font-weight:500; transition:color .15s;}
+  nav a:hover{color:var(--text);}
+  .nav-games{border-bottom:2px solid var(--games); padding-bottom:2px;}
+  .header-right{display:flex; align-items:center; gap:16px;}
+  .search{color:var(--text-mute); font-size:14px; border:1px solid var(--line); border-radius:20px; padding:7px 14px; cursor:pointer;}
+
+  /* ticker */
+  .ticker-bar{border-bottom:1px solid var(--line); background:var(--surface); overflow:hidden;}
+  .ticker-inner{display:flex; gap:36px; padding:10px 0; white-space:nowrap; animation:scroll 34s linear infinite;}
+  .ticker-bar:hover .ticker-inner{animation-play-state:paused;}
+  @keyframes scroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+  .tick{display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--text-mute);}
+  .dot{width:6px; height:6px; border-radius:50%; flex-shrink:0;}
+  .tick b{color:var(--text); font-weight:500;}
+
+  /* hero */
+  .hero-section{padding:40px 0 32px;}
+  .hero-grid{display:grid; grid-template-columns:1.6fr 1fr; gap:24px;}
+  .hero-card{position:relative; border-radius:4px; overflow:hidden; background:linear-gradient(160deg,#1a2540,#0d1420); border:1px solid var(--line); min-height:420px; display:flex; flex-direction:column; justify-content:flex-end; padding:28px; cursor:pointer;}
+  .hero-card .art{position:absolute; inset:0; opacity:0.5;}
+  .art-games{background:radial-gradient(circle at 70% 20%, var(--games-dim), transparent 60%);}
+  .tag{display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; padding:4px 10px; border-radius:2px; width:fit-content; position:relative; z-index:1;}
+  .tag-games{background:var(--games-dim); color:var(--games);}
+  .tag-film{background:var(--film-dim); color:var(--film);}
+  .tag-Music{background:var(--Music-dim); color:var(--Music);}
+  .hero-card h1{font-size:44px; margin:12px 0 10px; position:relative; z-index:1;}
+  .hero-card p{color:var(--text-mute); font-size:15px; max-width:90%; position:relative; z-index:1;}
+  .byline{margin-top:16px; font-size:12px; color:var(--text-mute); position:relative; z-index:1;}
+
+  .side-stack{display:flex; flex-direction:column; gap:16px;}
+  .side-card{background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:18px; cursor:pointer;}
+  .side-card h3{font-size:20px; font-family:'Big Shoulders',sans-serif; font-weight:700; margin:8px 0 6px; line-height:1.05;}
+  .side-card p{font-size:13px; color:var(--text-mute);}
+
+  /* signal meter */
+  .meter{display:inline-flex; align-items:center; gap:8px;}
+  .meter-ring{width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; position:relative;}
+  .meter-ring svg{position:absolute; inset:0; transform:rotate(-90deg);}
+  .meter-score{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500;}
+  .meter-label{font-size:10px; color:var(--text-mute); text-transform:uppercase; letter-spacing:0.06em;}
+
+  /* section rows */
+  .section{padding:36px 0;}
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:18px; border-bottom:1px solid var(--line); padding-bottom:12px;}
+  .section-title{font-family:'Big Shoulders',sans-serif; font-weight:800; font-size:28px; display:flex; align-items:center; gap:10px;}
+  .section-title .bar{width:5px; height:22px; border-radius:2px;}
+  .section-link{font-size:13px; color:var(--text-mute); text-decoration:none;}
+  .card-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .article-card{background:var(--surface); border:1px solid var(--line); border-radius:4px; overflow:hidden; cursor:pointer; display:flex; flex-direction:column;}
+  .thumb{height:120px; position:relative;}
+  .thumb-games{background:linear-gradient(135deg,var(--games-dim),#0B0E14);}
+  .thumb-film{background:linear-gradient(135deg,var(--film-dim),#0B0E14);}
+  .thumb-Music{background:linear-gradient(135deg,var(--Music-dim),#0B0E14);}
+  .card-body{padding:14px; display:flex; flex-direction:column; gap:10px; flex:1;}
+  .card-body h4{font-size:15px; font-weight:600; line-height:1.3;}
+  .card-foot{display:flex; align-items:center; justify-content:space-between; margin-top:auto;}
+  .card-meta{font-size:11px; color:var(--text-mute);}
+
+  footer{border-top:1px solid var(--line); padding:32px 0; margin-top:20px;}
+  .footer-row{display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--text-mute);}
+
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .card-grid{grid-template-columns:repeat(2,1fr);}
+    nav{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <div class="logo">MULTIVERZE<span>ENTERTAINMENT</span></div>
+    <nav>
+      <a href="https://multiverzeeternall-oss.github.io/WebsiteApp/index.html" class="nav-games">Games</a>
+      <a href="https://multiverzeeternall-oss.github.io/WebsiteApp/index2.html">Film & TV</a>
+      <a href="https://multiverzeeternall-oss.github.io/WebsiteApp/index3.html">Music</a>
+      <a href="https://multiverzeeternall-oss.github.io/WebsiteApp/index4.html">Technology</a>
+      <a href="https://multiverzeeternall-oss.github.io/WebsiteApp/index5.html">WorldTravel</a>
+      <a href="https://multiverzeeternall-oss.github.io/WebsiteApp/index6.html">Mansions & Cars</a>
+    </nav>
+    <div class="header-right">
+      <div class="search">Search</div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker-bar">
+  <div class="wrap">
+    <div class="ticker-inner" id="ticker"></div>
+  </div>
+</div>
+
+<div class="wrap hero-section">
+  <div class="hero-grid">
+    <div class="hero-card">
+      <div class="art art-games"></div>
+      <span class="tag tag-games">DEVELOPER TVSHOWS / Showings</span>
+      <h1 class="display">David Multiverze Washington presents ISEKAI KINGDOMS DEVS Logs</h1>
+      <p>David Multiverze Washington aka Multiveze of TONIGHT WITH DAVID MULTIVERZE WASHINTGON is directing, producing and Developing ISEKAIKINGDOMS</p>
+      <div class="byline">By David Washington · 8 min read · 2 hours ago</div>
+    </div>
+    <div class="side-stack">
+      <div class="side-card">
+        <span class="tag tag-film">Film & TV</span>
+        <h3 class="display">Isekai Kingdoms Movies, TV shows, Figurines and Animes Confirmed</h3>
+        <p>Studio is prepared for the long haul for it all.</p>
+      </div>
+      <div class="side-card">
+        <span class="tag tag-Music">Music</span>
+        <h3 class="display">HinduJewJuijitsuHabibi!</h3>
+        <p>HinduJewJuijitsuHabibi the Album is coming soon!.</p>
+      </div>
+      <div class="side-card">
+        <span class="tag tag-games">Games</span>
+        <h3 class="display">ISEKAI KINGDOMS Announced</h3>
+        <p>Studio cites several games in the ISEKAI KINGDOMS genre being made.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap section">
+  <div class="section-head">
+    <div class="section-title"><span class="bar" style="background:var(--games)"></span>Games</div>
+    <a class="section-link" href="#">All games coverage →</a>
+  </div>
+  <div class="card-grid" id="games-grid"></div>
+</div>
+
+<div class="wrap section">
+  <div class="section-head">
+    <div class="section-title"><span class="bar" style="background:var(--film)"></span>Film &amp; TV</div>
+    <a class="section-link" href="#">All film &amp; TV coverage →</a>
+  </div>
+  <div class="card-grid" id="film-grid"></div>
+</div>
+
+<div class="wrap section">
+  <div class="section-head">
+    <div class="section-title"><span class="bar" style="background:var(--Music)"></span>Music</div>
+    <a class="section-link" href="#">All Music coverage →</a>
+  </div>
+  <div class="card-grid" id="Music-grid"></div>
+</div>
+
+<footer>
+  <div class="wrap footer-row">
+    <div>© 2029 Multiverze Entertainment </div>
+    <div>Games · Film &amp; TV · Music · About · Contact</div>
+  </div>
+</footer>
+
+<script>
+const tickerItems = [
+  {c:'games', label:'Isekai Kingdoms', note:'coming soon'},
+  {c:'film', label:'HinduJewJuijistuHabibi', note:'being produced'},
+  {c:'Music', label:'TONIGHT WITH DAVID MULTIVERZE WASHINGTON', note:'watch online'},
+  {c:'games', label:'DAVID MULTIVERZE WASHINGTON presents DEV LOGS', note:'new episodes'},
+  {c:'film', label:'Casting news', note:'Isekai Kingdoms casting calls soon'},
+  {c:'Music', label:'Multiverze Magazine', note:'several books to watch'},
+];
+const colors = {games:'var(--games)', film:'var(--film)', Music:'var(--Music)'};
+function renderTicker(){
+  const el = document.getElementById('ticker');
+  const items = [...tickerItems, ...tickerItems];
+  el.innerHTML = items.map(t => `<span class="tick"><span class="dot" style="background:${colors[t.c]}"></span><b>${t.label}</b> ${t.note}</span>`).join('');
+}
+renderTicker();
+
+function meterSVG(score, color){
+  const pct = score/10;
+  const r = 15, c = 2*Math.PI*r;
+  const offset = c - pct*c;
+  return `<div class="meter-ring">
+    <svg width="38" height="38" viewBox="0 0 38 38">
+      <circle cx="19" cy="19" r="${r}" fill="none" stroke="#232939" stroke-width="3"/>
+      <circle cx="19" cy="19" r="${r}" fill="none" stroke="${color}" stroke-width="3" stroke-dasharray="${c}" stroke-dashoffset="${offset}" stroke-linecap="round"/>
+    </svg>
+    <span class="meter-score">${score.toFixed(1)}</span>
+  </div>`;
+}
+
+const data = {
+  'games-grid': {cls:'games', color:'var(--games)', items:[
+    {t:'Isekai Kingdoms RPG', s:9.2, m:'Review'},
+    {t:'Isekai Kingdoms Fighting Game', s:null, m:'News'},
+    {t:'Isekai Kingdoms MMO', s:7.4, m:'Review'},
+    {t:'Isekai Kingdoms Mobile Game', s:null, m:'Guide'},
+  ]},
+  'film-grid': {cls:'film', color:'var(--film)', items:[
+    {t:'Isekai Kingdoms Movies', s:null, m:'News'},
+    {t:'Isekai Kingdoms TV Shows', s:8.1, m:'Review'},
+    {t:'Isekai Kingdoms Animes', s:null, m:'News'},
+    {t:'TONIGHT WITH DAVID MULTIVERZE WASHINGTON', s:null, m:'Feature'},
+  ]},
+  'Music-grid': {cls:'Music', color:'var(--Music)', items:[
+    {t:'POETRY FROM DAVID MULTIVERZE WASHINGTON', s:9.6, m:'Review'},
+    {t:'MULTIVERZE ALBUMS', s:null, m:'Feature'},
+    {t:'HINDUJEWJUIJITSUHABIBI!', s:8.3, m:'Review'},
+    {t:'DAVID MULTIVERZE WASHINGTONS ALBUMS', s:null, m:'News'},
+  ]},
+};
+
+Object.entries(data).forEach(([id, group]) => {
+  const el = document.getElementById(id);
+  el.innerHTML = group.items.map(item => `
+    <div class="article-card">
+      <div class="thumb thumb-${group.cls}"></div>
+      <div class="card-body">
+        <h4>${item.t}</h4>
+        <div class="card-foot">
+          <span class="card-meta mono">${item.m.toUpperCase()}</span>
+          ${item.s ? meterSVG(item.s, group.color) : ''}
+        </div>
+      </div>
+    </div>
+  `).join('');
+});
+</script>
+
+</body>
+</html>
