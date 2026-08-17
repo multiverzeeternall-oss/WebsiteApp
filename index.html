@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multiverze Entertainment — Games. Film & TV. Music. Technology. WorldTravel, Mansions & Cars</title>
+  <title>Multiverze Entertainment ? Games. Film & TV. Music. Technology. WorldTravel, Mansions & Cars</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
   <style>
@@ -22,6 +22,7 @@
       --film-dim:#5C2135;
       --Music:#FFC24B;
       --Music-dim:#5C4213;
+      --MansionsCars-dim:#FFA500;
     }
     *{box-sizing:border-box; margin:0; padding:0;}
     body{
@@ -61,10 +62,12 @@
     .hero-card{position:relative; border-radius:4px; overflow:hidden; background:linear-gradient(160deg,#1a2540,#0d1420); border:1px solid var(--line); min-height:420px; display:flex; flex-direction:column; justify-content:flex-end; padding:28px; cursor:pointer;}
     .hero-card .art{position:absolute; inset:0; opacity:0.5;}
     .art-games{background:radial-gradient(circle at 70% 20%, var(--games-dim), transparent 60%);}
+    .youtube{ z-index: 10; }
     .tag{display:inline-flex; align-items:center; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; padding:4px 10px; border-radius:2px; width:fit-content; position:relative; z-index:1;}
     .tag-games{background:var(--games-dim); color:var(--games);}
     .tag-film{background:var(--film-dim); color:var(--film);}
     .tag-Music{background:var(--Music-dim); color:var(--Music);}
+    .tag-MansionsCars{background:var(--MansionsCars-dim); color:var(--MansionsCars);}
     .hero-card h1{font-size:44px; margin:12px 0 10px; position:relative; z-index:1;}
     .hero-card p{color:var(--text-mute); font-size:15px; max-width:90%; position:relative; z-index:1;}
     .byline{margin-top:16px; font-size:12px; color:var(--text-mute); position:relative; z-index:1;}
@@ -136,24 +139,24 @@
 <div class="wrap hero-section">
 
 
-  
+
   <div class="hero-grid">
 
 
-    
+
     <div class="hero-card">
 
-      <div>
-            <iframe width="650" height="315"
-              src="https://www.youtube.com/embed/iA3cRKQ2aKM">
-            </iframe>
-     </div>
+      <div class="youtube">
+        <iframe width="650" height="315"
+                src="https://www.youtube.com/embed/iA3cRKQ2aKM">
+        </iframe>
+      </div>
 
       <div class="art art-games"></div>
       <span class="tag tag-games">DEVELOPER TVSHOWS / Showings</span>
       <h1 class="display">David Multiverze Washington presents ISEKAI KINGDOMS DEVS Logs</h1>
-      <p>David Multiverze Washington aka Multiveze of TONIGHT WITH DAVID MULTIVERZE WASHINGTON is directing, producing and Developing ISEKAIKINGDOMS</p>
-      <div class="byline">By David Washington · 8 min read · 2 hours ago</div>
+      <p>David Multiverze Washington aka Multiveze of TONIGHT WITH DAVID MULTIVERZE WASHINTGON is directing, producing and Developing ISEKAIKINGDOMS</p>
+      <div class="byline">By David Washington � 8 min read � 2 hours ago</div>
     </div>
     <div class="side-stack">
       <div class="side-card">
@@ -171,6 +174,11 @@
         <h3 class="display">ISEKAI KINGDOMS Announced</h3>
         <p>Studio cites several games in the ISEKAI KINGDOMS genre being made.</p>
       </div>
+      <div class="side-card">
+        <span class="tag tag-MansionsCars">Mansions & Cars</span>
+        <h3 class="display">The Latest and Greatest Mansions and Car News</h3>
+        <p>Check the best locations to live and drive globally.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -178,7 +186,7 @@
 <div class="wrap section">
   <div class="section-head">
     <div class="section-title"><span class="bar" style="background:var(--games)"></span>Games</div>
-    <a class="section-link" href="#">All games coverage →</a>
+    <a class="section-link" href="#">All games coverage ?</a>
   </div>
   <div class="card-grid" id="games-grid"></div>
 </div>
@@ -186,7 +194,7 @@
 <div class="wrap section">
   <div class="section-head">
     <div class="section-title"><span class="bar" style="background:var(--film)"></span>Film &amp; TV</div>
-    <a class="section-link" href="#">All film &amp; TV coverage →</a>
+    <a class="section-link" href="#">All film &amp; TV coverage ?</a>
   </div>
   <div class="card-grid" id="film-grid"></div>
 </div>
@@ -194,15 +202,15 @@
 <div class="wrap section">
   <div class="section-head">
     <div class="section-title"><span class="bar" style="background:var(--Music)"></span>Music</div>
-    <a class="section-link" href="#">All Music coverage →</a>
+    <a class="section-link" href="#">All Music coverage ?</a>
   </div>
   <div class="card-grid" id="Music-grid"></div>
 </div>
 
 <footer>
   <div class="wrap footer-row">
-    <div>© 2029 Multiverze Entertainment </div>
-    <div>Games · Film &amp; TV · Music · About · Contact</div>
+    <div>� 2029 Multiverze Entertainment </div>
+    <div>Games � Film &amp; TV � Music � About � Contact</div>
   </div>
 </footer>
 
